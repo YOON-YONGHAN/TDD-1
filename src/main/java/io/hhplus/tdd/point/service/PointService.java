@@ -40,7 +40,8 @@ public class PointService {
     }
 
     // 유저 포인트 사용
-    public UserPoint usePoint(long id, long amount) throws Exception {
+    // synchronized 예약어를 통한 동시성 관리
+    public synchronized UserPoint usePoint(long id, long amount) throws Exception {
 
         // 보유 포인트 확인
         UserPoint userPoint = userPointRepository.selectById(id);
